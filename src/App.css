@@ -1,42 +1,86 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  font-size: 15px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background-color: rgb(39, 41, 46);
+  color: #fff;
   min-height: 100vh;
+}
+.App {
+  width: 100%;
+  max-width: 615px;
+  margin: auto;
+}
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  padding-block: 36px;
+}
+.title {
+  font-size: 38.4px;
+}
+.btn-menu {
+  font-size: 1rem;
+  padding: .625rem 1.1875rem;
+  border: none;
+  border-radius: .625rem;
+  box-shadow: .0625rem .3125rem .9375rem #b0bcdb30;
+  cursor: pointer;
+}
+.counter {
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  margin-top: .3125rem;
+  margin-bottom: 1.8rem;
+}
+.table {
+  width: min-content;
+  display: grid;
+  grid-template-columns: repeat(4, 8.75rem);
+  grid-template-rows: repeat(4, 8.75rem);
+  justify-content: flex-start;
+  align-items: center;
+  gap: .8125rem;
+  padding: 1.75rem;
+  background-color: #292a32;
+  box-shadow: 0 1.875rem 3.75rem #1f2126;
+  border-radius: 1.25rem;
+  margin: auto;
+}
+.card {
+  height: 100%;
+  width: 100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background-color: #6f738724;
+  color: #ffffff;
+  border: .125rem solid #fff;
+  cursor: pointer;
+  user-select: none; 
 }
-
-.App-link {
-  color: #61dafb;
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.showImg {
+  display: block;
 }
-
-button {
-  font-size: calc(10px + 2vmin);
+.card__undiscovered {
+  font-size: 3.5rem;
+  text-align: center;
+  margin: 0;
+}
+.hideText {
+  display: none;
 }
