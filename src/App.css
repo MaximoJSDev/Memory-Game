@@ -73,14 +73,15 @@ body {
   object-fit: cover;
   display: none;
 }
-.showImg {
+.showCard .card__img {
   display: block;
+  user-select: none;
 }
-.card__undiscovered {
+.card__text {
   font-size: 3.5rem;
   text-align: center;
   margin: 0;
 }
-.hideText {
+.showCard .card__text {
   display: none;
 }
