@@ -9,7 +9,7 @@ function App() {
   // Numero de cartas por dificultad (Cambiara con el menu)
   const [numCards, setNumCards] = useState([]);
   const [movements, setMovements] = useState(0);
-  const [remainingPairs, setRemainingPairs] = useState(numCards.length);
+  const [remainingPairs, setRemainingPairs] = useState(0);
 
   // useEffect(() => {
   //   if (remainingPairs === 0) alert("You Wins");
@@ -19,7 +19,10 @@ function App() {
     <main className="App">
       <Header setNumCards={setNumCards} />
       {numCards.length == 0 ? (
-        <MenuGame setNumCards={setNumCards} />
+        <MenuGame
+          setNumCards={setNumCards}
+          setRemainingPairs={setRemainingPairs}
+        />
       ) : (
         <>
           <Counters movements={movements} remainingPairs={remainingPairs} />
