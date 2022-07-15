@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 
-function Table() {
-  // Numero de cartas por dificultad (Cambiara con el menu)
-  const [numCards, setNumCards] = useState(Array.from({ length: 8 }));
+function Table({
+  numCards,
+  setMovements,
+  movements,
+  setRemainingPairs,
+  remainingPairs,
+}) {
   // Cartas en Juego
   const [cards, setCards] = useState([]);
   // Pareja de cartas seleccionadas
@@ -12,8 +16,8 @@ function Table() {
   const shuffleCards = () => {
     // Cartas aleatorias
     for (let i = 1; i < numCards.length + 1; i++) {
-      setCards((current) =>
-        [
+      setCards(
+        (current) => [
           ...current,
           {
             id: i,
@@ -27,7 +31,7 @@ function Table() {
               i * 3
             }.png`,
           },
-        ].sort(() => 0.5 - Math.random())
+        ] //.sort(() => 0.5 - Math.random())
       );
     }
   };
@@ -44,12 +48,15 @@ function Table() {
     if (pairCards.length === 0) return;
     // Verifica si las parejas se han seleccionado
     if (pairCards[0]?.id !== undefined && pairCards[1]?.id !== undefined) {
+      setMovements(movements + 1);
       // Si las parejas no coinsiden ocultalas
       if (pairCards[0].id !== pairCards[1].id) {
         setTimeout(() => {
           pairCards[0].element.classList.remove("showCard");
           pairCards[1].element.classList.remove("showCard");
         }, 900);
+      } else {
+        setRemainingPairs(remainingPairs - 1);
       }
       setPairCards([]); // Reinicia la pareja
     }
