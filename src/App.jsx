@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Counters from "./components/Counters";
 import Header from "./components/Header";
@@ -10,10 +10,6 @@ function App() {
   const [numCards, setNumCards] = useState([]);
   const [movements, setMovements] = useState(0);
   const [remainingPairs, setRemainingPairs] = useState(0);
-
-  // useEffect(() => {
-  //   if (remainingPairs === 0) alert("You Wins");
-  // }, [remainingPairs]);
 
   return (
     <main className="App">
@@ -27,6 +23,7 @@ function App() {
         <>
           <Counters movements={movements} remainingPairs={remainingPairs} />
           <Table
+            setNumCards={setNumCards}
             numCards={numCards}
             setMovements={setMovements}
             movements={movements}

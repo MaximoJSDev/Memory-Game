@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 
 function Table({
+  setNumCards,
   numCards,
   setMovements,
   movements,
@@ -61,6 +62,14 @@ function Table({
       setPairCards([]); // Reinicia la pareja
     }
   }, [pairCards]);
+
+  useEffect(() => {
+    // Alerta de victoria cuando no queden pares restantes
+    if (remainingPairs === 0) {
+      alert("You Wins");
+      setNumCards([]);
+    }
+  }, [remainingPairs]);
 
   const getDifficulty = (cards) => {
     if (cards === 8) return "facil";
