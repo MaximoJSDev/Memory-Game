@@ -16,8 +16,8 @@ function Table({
   const shuffleCards = () => {
     // Cartas aleatorias
     for (let i = 1; i < numCards.length + 1; i++) {
-      setCards(
-        (current) => [
+      setCards((current) =>
+        [
           ...current,
           {
             id: i,
@@ -31,7 +31,7 @@ function Table({
               i * 3
             }.png`,
           },
-        ] //.sort(() => 0.5 - Math.random())
+        ].sort(() => 0.5 - Math.random())
       );
     }
   };
@@ -62,8 +62,14 @@ function Table({
     }
   }, [pairCards]);
 
+  const getDifficulty = (cards) => {
+    if (cards === 8) return "facil";
+    if (cards === 12) return "normal";
+    if (cards === 15) return "dificil";
+  };
+
   return (
-    <div className="table">
+    <div className={`table ${getDifficulty(numCards.length)}`}>
       {cards.map((card, index) => (
         <Card key={index} card={card} setPairCards={setPairCards} />
       ))}
