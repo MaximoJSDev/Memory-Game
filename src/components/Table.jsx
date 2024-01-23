@@ -41,6 +41,7 @@ function Table({
     //=== Al iniciar la app, barajea las cartas ===//
     setCards([]);
     shuffleCards();
+    setMovements(0)
   }, []);
 
   useEffect(() => {
@@ -68,6 +69,7 @@ function Table({
     if (remainingPairs === 0) {
       alert("You Wins");
       setNumCards([]);
+      setMovements(0)
     }
   }, [remainingPairs]);
 
